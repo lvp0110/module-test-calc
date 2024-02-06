@@ -13,6 +13,7 @@
       <button v-for="elem in getItems" :key="elem.Code" type="button" class="list-group-item     list-group-item-action" aria-current="true">
          {{elem.Code}} {{elem.Name}}
       </button>
+      
   </div>
 </template>
 

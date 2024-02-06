@@ -1,7 +1,7 @@
 <template>
    
-    <a href="http://d123viyh.beget.tech/" class="d-grid gap-2" > 
-        <button class="btn btn-outline-secondary"> 
+    <a href="http://d123viyh.beget.tech/" class="d-grid gap-2"  style="text-decoration: none;"> 
+        <button class="btn btn-outline-secondary" > 
            РАСЧЕТ КОНСТРУКЦИЙ
         </button>
     </a>
@@ -17,4 +17,4 @@
 <script>
   
 
-</script>
+</script> 

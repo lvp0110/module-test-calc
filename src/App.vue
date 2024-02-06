@@ -44,9 +44,8 @@
         <div class="accordion-body">
           <LoginForm/>
           <CertificatesBase/>
-          <TechnicalBase/>
-          <InstallBase/>
-					<TestBase />
+        
+					
         </div>
       </div>
     </div>
