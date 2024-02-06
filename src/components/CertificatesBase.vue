@@ -36,35 +36,33 @@
           {{elem.name}}
       </button>
   </div>
-
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<!-- Карусель -->
+  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> -->
+<div id="carouselExampleIndicators" class="carousel slide" :class="{'carousel-hidden': !isCarouselVisible}" data-bs-ride="carousel">
   <div class="carousel-indicators">
-    
     <button v-for="(image, index) in selectedImages" :key="index" type="button" 
-      :class="{'active': index === 0}" 
+    :class="{'active custom-indicator active': index === 0, 'custom-indicator': index !== 0}"  
       data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index" 
       :aria-label="'Slide ' + (index + 1)"></button>
   </div>
 
-  <div class="carousel-inner">
-
+  <div class="carousel-inner" >
       <div v-for="(image, index) in selectedImages" :key="index" 
       :class="['carousel-item', { active: index === 0 }]">
-        <img :src="image" class="d-block w-100" :alt="'Slide ' + (index + 1)" alt="щщщ">
+        <img :src="image" class="d-block w-100" :alt="'Slide ' + (index + 1)" alt="...">
       </div>
-
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+ 
+  <button class="carousel-control-prev" type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
 
-  
+</div>
  
 </template>
 
@@ -75,32 +73,30 @@ export default {
     data() {
       // Добавляем новое свойство в состояние компонента
       return {
+        isCarouselVisible: false,
         isCertVisible: false,  // По умолчанию список видим
         isTestVisible: false,  // По умолчанию список видим
         selectedCert:[],
-
         selectedImages: [],
         Certificate:[
-          {id:1,name:'ЗИПС-Z4',images:['public/Z4/fire_cert.png','public/Z4/eco_cert.png','public/Z4/conf_cert.png','public/Z4/san_cert_1.png','public/Z4/san_cert_2.png']},
-          {id:2,name:'Aku-Line',images:['public/Aku_line/fire_cert.png','public/Aku_line/san_cert_1.png','public/Aku_line/san_cert_2.png','public/Aku_line/eco_sert.png']},
-          {id:3,name:'Вибросил(виброакустический герметик)',images:['','']},
-          {id:4,name:'Шуманет-ЭКО Акустическая экологичная стеклоплита',images:['','']},
-          {id:5,name:'Шумостоп-С2,стеклоплита',images:['','']},
-          {id:6,name:'ЗИПС-Cinema',images:['','']},
+          {id:1,name:'ЗИПС-Z4',images:['/Z4/fire_cert.png','/Z4/eco_cert.png','/Z4/conf_cert.png','/Z4/san_cert_1.png','/Z4/san_cert_2.png']},
+          {id:2,name:'Aku-Line',images:['/Aku_line/fire_cert.png','/Aku_line/san_cert_1.png','/Aku_line/san_cert_2.png','/Aku_line/eco_sert.png']},
+          {id:3,name:'Вибросил(виброакустический герметик)',images:['/Vibrosil/fire_cert_vibrosil.png','/Vibrosil/san_cert_vibrosil_1.png','/Vibrosil/san_cert_vibrosil_2.png','/Vibrosil/san_cert_vibrosil_3.png','/Vibrosil/san_cert_vibrosil_4.png']},
+          {id:4,name:'Шуманет-ЭКО Акустическая экологичная стеклоплита',images:['/Eco/fire_cert_eco.png','/Eco/cert_eco.png','/Eco/san_cert_eco_1.png','/Eco/san_cert_eco_2.png']},
+          {id:5,name:'Шумостоп-С2,стеклоплита',images:['/C2/cert_C2.png','/C2/csan_cert_C2_1.png','/C2/csan_cert_C2_2.png','/C2/csan_cert_C2_3.png','/C2/fire_cert_C2.png']},
+          
         ],
         selectedTest:[],
         Test:[
-          {id:1,name:'ЗИПС-Z4',images:['public/Z4/test_report1.png','public/Z4/test_report2.png']},
-          {id:2,name:'Вибросил(виброакустический герметик)',images:['','']},
-          {id:3,name:'Шуманет-ЭКО Акустическая экологичная стеклоплита',images:['','']},
-          {id:4,name:'ЗИПС-Vector',images:['','']},
-          {id:5,name:'Шумостоп-С2,стеклоплита',images:['',''],},
+          {id:1,name:'ЗИПС-Z4',images:['/Z4/test_report1.png','/Z4/test_report2.png']},
+          {id:2,name:'Вибросил(виброакустический герметик)',images:['/Vibrosil/test_report_vibrosi_1.png','/Vibrosil/test_report_vibrosil_2.png','/Vibrosil/test_report_vibrosil_3.png']},
+          {id:3,name:'Шуманет-ЭКО Акустическая экологичная стеклоплита',images:['/Eco/test_report_eco_1.png','/Eco/test_report_eco_2.png','/Eco/test_report_eco_3.png','/Eco/test_report_eco_4.png']},
+          {id:4,name:'Шумостоп-С2,стеклоплита',images:['/C2/test_report_C2_1.png','/C2/test_report_C2_2.png','/C2/test_report_C2_3.png','/C2/test_report_C2_4.png','/C2/test_report_C2_2.1_1.png','/C2/test_report_C2_2.1_2.png','/C2/test_report_C2_2.1_3.png'],},
           
         ],
       }
     },
     computed: {
-
       // Обработка массива сертификатов
        filteredCertificates() {
         if (!this.$store.state.searchText) return this.Certificate; // Если строка поиска пустая, возвращаем все значения
@@ -117,9 +113,7 @@ export default {
          );
        }
       },
-
     methods:{
-
       setActiveImages(test) {
         this.selectedTest = test.images;
       },
@@ -130,12 +124,17 @@ export default {
       toggleTest(){
         this.isTestVisible = !this.isTestVisible;
       },
-
       setActiveImages(elem, type) {
       if (type === 'cert') {
         this.selectedImages = elem.images;
       } else if (type === 'test') {
         this.selectedImages = elem.images;
+      }
+      if (this.selectedImages === elem.images && this.isCarouselVisible) {
+         this.isCarouselVisible = false; // Скрываем карусель
+      } else {
+         this.selectedImages = elem.images; // Обновляем выбранные изображения
+         this.isCarouselVisible = true; // Показываем карусель
       }
       // Вызовите функцию обновления карусели, если есть такая 
         this.updateCarousel();
@@ -147,10 +146,28 @@ export default {
       // которые требуют явного обновления/переинициализации карусели
       }
       
-    }
- 
-}
+     }
+  }
 </script>
+<style>
+  .carousel-hidden {
+    display: none;
+  }
+  /* Стили для индикаторов карусели */
+.custom-indicator {
+  background-color: blue; /* Цвет кнопок индикатора */
+}
 
+/* Стили для кнопок управления "Предыдущий/Следующий" */
+.custom-control-prev-icon,
+.custom-control-next-icon {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg); /* Пример изменения цвета иконок */
+}
+
+/* Активный индикатор */
+.custom-indicator.active {
+  background-color: black; /* Цвет активного индикатора */
+}
+</style>
 
   
