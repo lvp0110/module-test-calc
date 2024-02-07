@@ -53,11 +53,13 @@
       </div>
   </div>
  
-  <button class="carousel-control-prev" type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+  <button class="carousel-control-prev custom-control-prev-icon" type="button"  
+  data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" >
+  <button class="carousel-control-next custom-control-prev-icon" type="button" 
+  data-bs-target="#carouselExampleIndicators" data-bs-slide="next" >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
@@ -80,11 +82,10 @@ export default {
         selectedImages: [],
         Certificate:[
           {id:1,name:'ЗИПС-Z4',images:['/Z4/fire_cert.png','/Z4/eco_cert.png','/Z4/conf_cert.png','/Z4/san_cert_1.png','/Z4/san_cert_2.png']},
-          {id:2,name:'Aku-Line',images:['/Aku_line/fire_cert.png','/Aku_line/san_cert_1.png','/Aku_line/san_cert_2.png','/Aku_line/eco_sert.png']},
+          {id:2,name:'Аku-Line',images:['/Aku_line/fire_cert.png','/Aku_line/san_cert_1.png','/Aku_line/san_cert_2.png','/Aku_line/eco_sert.png']},
           {id:3,name:'Вибросил(виброакустический герметик)',images:['/Vibrosil/fire_cert_vibrosil.png','/Vibrosil/san_cert_vibrosil_1.png','/Vibrosil/san_cert_vibrosil_2.png','/Vibrosil/san_cert_vibrosil_3.png','/Vibrosil/san_cert_vibrosil_4.png']},
           {id:4,name:'Шуманет-ЭКО Акустическая экологичная стеклоплита',images:['/Eco/fire_cert_eco.png','/Eco/cert_eco.png','/Eco/san_cert_eco_1.png','/Eco/san_cert_eco_2.png']},
           {id:5,name:'Шумостоп-С2,стеклоплита',images:['/C2/cert_C2.png','/C2/csan_cert_C2_1.png','/C2/csan_cert_C2_2.png','/C2/csan_cert_C2_3.png','/C2/fire_cert_C2.png']},
-          
         ],
         selectedTest:[],
         Test:[
@@ -92,7 +93,6 @@ export default {
           {id:2,name:'Вибросил(виброакустический герметик)',images:['/Vibrosil/test_report_vibrosi_1.png','/Vibrosil/test_report_vibrosil_2.png','/Vibrosil/test_report_vibrosil_3.png']},
           {id:3,name:'Шуманет-ЭКО Акустическая экологичная стеклоплита',images:['/Eco/test_report_eco_1.png','/Eco/test_report_eco_2.png','/Eco/test_report_eco_3.png','/Eco/test_report_eco_4.png']},
           {id:4,name:'Шумостоп-С2,стеклоплита',images:['/C2/test_report_C2_1.png','/C2/test_report_C2_2.png','/C2/test_report_C2_3.png','/C2/test_report_C2_4.png','/C2/test_report_C2_2.1_1.png','/C2/test_report_C2_2.1_2.png','/C2/test_report_C2_2.1_3.png'],},
-          
         ],
       }
     },
@@ -154,20 +154,23 @@ export default {
     display: none;
   }
   /* Стили для индикаторов карусели */
-.custom-indicator {
-  background-color: blue; /* Цвет кнопок индикатора */
-}
+  .custom-indicator {
+    background-color: gray; /* Цвет кнопок индикатора */
+  }
 
-/* Стили для кнопок управления "Предыдущий/Следующий" */
-.custom-control-prev-icon,
-.custom-control-next-icon {
-  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg); /* Пример изменения цвета иконок */
-}
+  /* Стили для кнопок управления "Предыдущий/Следующий" */
+  /* Пример изменения цвета иконок */
+  .custom-control-prev-icon,
+  .custom-control-next-icon {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg); 
+    
+  }
+ 
+  /* Цвет активного индикатора */
+  .custom-indicator.active {
+    background-color: gray; 
+    filter: drop-shadow(2px 2px 2px black);
+  }
 
-/* Активный индикатор */
-.custom-indicator.active {
-  background-color: black; /* Цвет активного индикатора */
-}
 </style>
 
-  
